@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <style>
+        form>input{
+            height:30px;
+            width: 300px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+
+        }
+        #container{
+            height: auto;
+            width: 340px;
+            padding:20px;
+          
+           align-items: center;
+           box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        }
+        #row{
+            display: flex;
+           justify-content: center;
+        }
+      
+    </style>
+</head>
+<body>
+
+   <div id="row">
+    <div id="container">
+
+        <form>
+            <label for="username">user email</label><br>
+            <input type="text" placeholder="emter email" id="email"><br>
+            <label for="user mobile">User mobile</label><br>
+            <input type="number" placeholder="enter mobile" id="mobile"><br>
+            <label for="password">password</label><br>
+            <input type="text" placeholder="enter password" id="password">
+            <br>
+            <input type="submit">
+            
+        </form>
+    
+       </div>
+     
+
+   </div>
+</body>
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit",myfunction);
+    var arr=JSON.parse(localStorage.getItem("userdata"))||[];
+    function myfunction(){
+        event.preventDefault();
+        obj={};
+        email1=document.querySelector("#email").value;
+        mobile1=document.querySelector("#mobile").value;
+        password1=document.querySelector("#password").value;
+        obj.email=email1;
+        obj.mobile=mobile1;
+        obj.password=password1;
+        arr.push(obj);
+        console.log(arr)
+        localStorage.setItem("userdata",JSON.stringify(arr))
+     
+
+    }
+</script>
